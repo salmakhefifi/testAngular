@@ -1,0 +1,25 @@
+<br />
+<br />
+<div class="input-group">
+   
+  <button class="btn btn-primary" routerLink="/add">add </button>
+
+</div>
+<br />
+<div class="row">
+  <div class="card" style="width: 18rem" *ngFor="let a of  searchbytitle()" >
+    <div class="card-body">
+      <h5 class="card-title">{{ a.name }}</h5>
+     <h6 class="card-title">{{ a.address }}</h6>
+      <p class="card-text">  {{ a.date | date }} </p>
+
+    
+<button class="btn btn-danger" (click)="deleteres(a.id)">Delete</button>
+<button class="btn btn-primary" [routerLink]="['/details',a.id]">details</button>
+         <button class="btn btn-danger" [routerLink]="['/update',a.id]">update</button>    </div>
+   
+  </div>
+</div>
+<br />
+<br />
+<br />

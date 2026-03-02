@@ -1,0 +1,104 @@
+<br />
+<br />
+<form [formGroup]="suggform">
+<div class="input-group">
+<div class="input-group-prepend">
+    <span class="input-group-text">Name</span>
+    </div>
+    <input type="text" aria-label="First name" formControlName="name" class="form-control" />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('name')?.touched &&
+      suggform.get('name')?.errors?.['required']
+    "
+  >
+    Name is required
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('name')?.touched &&
+      suggform.get('name')?.errors?.['maxlength']
+    "
+  >
+    Name max length 10
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('name')?.touched && suggform.get('name')?.errors?.['pattern']
+    "
+  >
+    Name doit commence par majus
+  </div>
+  <br />
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">address</span>
+    </div>
+    <input
+      type="text"
+      aria-label="First name"
+      formControlName="address"
+      class="form-control"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('address')?.touched &&
+      suggform.get('address')?.errors?.['required']
+    "
+  >
+    Address is required
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('address')?.touched &&
+      suggform.get('address')?.errors?.['minlength']
+    "
+  >
+    Address min length 10
+  </div>
+  <br />
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">status</span>
+    </div>
+    <input
+      type="text"
+      aria-label="First name"
+      formControlName="status"
+      class="form-control"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      suggform.get('status')?.touched &&
+      suggform.get('status')?.errors?.['required']
+    "
+  >
+    status is required
+  </div>
+
+  <br />
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">image(url)</span>
+    </div>
+    <input
+      type="text"
+      aria-label="First name"
+      formControlName="image"
+      class="form-control"
+    />
+  </div>
+   <br />
+  <button class="btn btn-primary"  (click)="update()">
+    save
+  </button>
+</form>
